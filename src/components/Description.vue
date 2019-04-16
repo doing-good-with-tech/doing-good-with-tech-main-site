@@ -10,18 +10,17 @@
 
 <style scoped lang="scss">
 .container {
-    background-color: #3B413C;
-    color: #F7F9F7;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    .row {
-        p {
-            text-align: left;
-            width: 60%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+  background-color: #3b413c;
+  color: #f7f9f7;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  .row {
+    p {
+      text-align: left;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
     }
+  }
 }
-
 </style>
