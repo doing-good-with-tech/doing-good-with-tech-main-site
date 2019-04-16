@@ -1,12 +1,12 @@
 steps:
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/DoingGoodWithTechService', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/doing-good-with-tech', '.']
   # push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/DoingGoodWithTechService']
+  args: ['push', 'gcr.io/$PROJECT_ID/doing-good-with-tech']
   # Deploy container image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'DoingGoodWithTechService', '--image', 'gcr.io/$PROJECT_ID/DoingGoodWithTechService', '--region', 'europe-west1-b']
+  args: ['beta', 'run', 'deploy', 'doing-good-with-tech', '--image', 'gcr.io/$PROJECT_ID/doing-good-with-tech', '--region', 'europe-west1-b']
 images:
-- gcr.io/$PROJECT_ID/DoingGoodWithTechService
+- gcr.io/$PROJECT_ID/doing-good-with-tech
