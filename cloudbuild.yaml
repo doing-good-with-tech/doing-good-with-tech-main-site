@@ -7,7 +7,7 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/doing-good-with-tech']
   # Get Cluser
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['container', 'clusters', 'get-credentials', 'doing-good-with-tech-cluster']
+  args: ['container', 'clusters', 'get-credentials', 'doing-good-with-tech-cluster', '--zone', 'europe-west2-b']
   # Deploy to cluster
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['run', 'doing-good-with-tech-web', '--image', 'gcr.io/$PROJECT_ID/doing-good-with-tech', '--port', '8080']
