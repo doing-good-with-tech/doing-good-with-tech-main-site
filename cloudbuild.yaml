@@ -5,8 +5,12 @@ steps:
   # push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/doing-good-with-tech']
-  # Deploy container image to Cloud Run
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'doing-good-with-tech', '--image', 'gcr.io/$PROJECT_ID/doing-good-with-tech', '--region', 'us-central1']
+  # Deploy to cluster
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['run', 'doing-good-with-tech-cluster', '--image', 'gcr.io/$PROJECT_ID/doing-good-with-tech', '--port', '8080']
+  # Expose cluster
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['expose', 'deployment', 'doing-good-with-tech-cluster', '--type=LoadBalancer', '--port', '80', '--target-port', '8080']
 images:
 - gcr.io/$PROJECT_ID/doing-good-with-tech
+
